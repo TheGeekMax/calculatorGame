@@ -12,7 +12,16 @@ public class GameManager : MonoBehaviour{
     public TextMeshProUGUI goalText;
     public TextMeshProUGUI currentText;
 
+    [Header("Data")]
+    public static GameManager instance;
+
     void Start(){
+
+        if(instance == null){
+            instance = this;
+        }else{
+            Destroy(this);
+        }
         UpdateText();
     }
 
@@ -57,5 +66,26 @@ public class GameManager : MonoBehaviour{
         UpdateText();
     }
 
-
+    public void DoOperation(Operation op, int value){
+        switch(op){
+            case Operation.Addition:
+                AddValue(value);
+                break;
+            case Operation.Subtraction:
+                SubtractValue(value);
+                break;
+            case Operation.Multiplication:
+                MultiplyValue(value);
+                break;
+            case Operation.Division:
+                DivideValue(value);
+                break;
+            case Operation.LeftShift:
+                LeftShiftValue();
+                break;
+            case Operation.RightShift:
+                RightShiftValue();
+                break;
+        }
+    }
 }
