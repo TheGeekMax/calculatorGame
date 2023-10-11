@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour{
     [Header("Data")]
     public static GameManager instance;
 
+    [Header("Constantes")]
+    public const int MAX_VALUE = 1000;
+    public const int MIN_VALUE = -1000;
+
     void Start(){
 
         if(instance == null){
@@ -39,31 +43,67 @@ public class GameManager : MonoBehaviour{
     public void AddValue(int value){
         currentValue += value;
         UpdateText();
+        //on map la valeur actuelle
+        if(currentValue > MAX_VALUE){
+            currentValue = MAX_VALUE;
+        }else if(currentValue < MIN_VALUE){
+            currentValue = MIN_VALUE;
+        }
     }
 
     public void SubtractValue(int value){
         currentValue -= value;
         UpdateText();
+        //on map la valeur actuelle
+        if(currentValue > MAX_VALUE){
+            currentValue = MAX_VALUE;
+        }else if(currentValue < MIN_VALUE){
+            currentValue = MIN_VALUE;
+        }
     }
 
     public void MultiplyValue(int value){
         currentValue *= value;
         UpdateText();
+        //on map la valeur actuelle
+        if(currentValue > MAX_VALUE){
+            currentValue = MAX_VALUE;
+        }else if(currentValue < MIN_VALUE){
+            currentValue = MIN_VALUE;
+        }
     }
 
     public void DivideValue(int value){
         currentValue /= value;
         UpdateText();
+        //on map la valeur actuelle
+        if(currentValue > MAX_VALUE){
+            currentValue = MAX_VALUE;
+        }else if(currentValue < MIN_VALUE){
+            currentValue = MIN_VALUE;
+        }
     }
 
     public void LeftShiftValue(){
         currentValue *= 10;
         UpdateText();
+        //on map la valeur actuelle
+        if(currentValue > MAX_VALUE){
+            currentValue = MAX_VALUE;
+        }else if(currentValue < MIN_VALUE){
+            currentValue = MIN_VALUE;
+        }
     }
 
     public void RightShiftValue(){
         currentValue /= 10;
         UpdateText();
+        //on map la valeur actuelle
+        if(currentValue > MAX_VALUE){
+            currentValue = MAX_VALUE;
+        }else if(currentValue < MIN_VALUE){
+            currentValue = MIN_VALUE;
+        }
     }
 
     public void DoOperation(Operation op, int value){
